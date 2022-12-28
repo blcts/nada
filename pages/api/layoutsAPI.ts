@@ -6,15 +6,30 @@ export const shedule = async () => {
     const response: TMovie[] = await axios.get("/schedule");
     return response;
   } catch {
-    return console.log("Cant get shedule");
+    return console.log("Can't get shedule");
   }
 };
 
-export const shows = () => {
-  return axios.get(`/api#shows`);
+export const shows = async (id: number) => {
+  try {
+    const response: TMovie = await axios.get(`/shows/${id}`);
+    return response;
+  } catch {
+    return console.log("Can't get show");
+  }
+};
+
+export const cast = async (id: number) => {
+  try {
+    const response: TMovie = await axios.get(`/shows/${id}/cast`);
+    return response;
+  } catch {
+    return console.log("Can't get cast");
+  }
 };
 
 export const LayoutAPI = {
   shedule,
   shows,
+  cast,
 };
