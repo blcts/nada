@@ -36,7 +36,7 @@ const theme = createTheme({
       dark: "#856B29",
     },
     warning: {
-      main: "#F08E5B",
+      main: "#DF4C0C",
       dark: "#723A3A",
     },
     error: {
@@ -53,9 +53,9 @@ const theme = createTheme({
       dark: "#3943A1",
     },
     primary: {
-      main: "#F1F2F1",
-      light: "#FFFFFF",
-      dark: "#1D283A",
+      main: "#454C62",
+      light: "#C2CDF3",
+      dark: "#212225",
     },
   },
   typography: {

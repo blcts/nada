@@ -4,11 +4,11 @@ import MainContainer from "../components/MainContainer";
 import { LayoutAPI } from "./api/layoutsAPI";
 import Movie from "../components/Movie";
 import { TMovie } from "../types/movie";
-import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 import theme from "../config/theme";
 import { LastShowsBox } from "../styles/components/LastShowsBox";
 import { TVBlandBox } from "../styles/components/TVBlandBox";
+import { NextLink } from "../styles/components/NextLink";
 
 interface SheduleProps {
   movies: TMovie[];
@@ -25,13 +25,19 @@ const Shedule: FC<SheduleProps> = ({ movies }) => {
           >
             TV Bland
           </Typography>
-          <Typography variant="h4" sx={{ color: theme.palette.primary.main }}>
+          <Typography variant="h4" sx={{ color: theme.palette.warning.main }}>
             Last Added Shows
           </Typography>
         </TVBlandBox>
 
-        <LastShowsBox>
-          {Children.toArray(movies.map((mov) => <Movie mov={mov} />))}
+        <LastShowsBox sx={{ backgroundColor: theme.palette.primary.main }}>
+          {Children.toArray(
+            movies.map((mov) => (
+              <NextLink href={`/shows/${mov.show.id}`}>
+                <Movie mov={mov} />
+              </NextLink>
+            ))
+          )}
         </LastShowsBox>
       </MainContainer>
     </div>
